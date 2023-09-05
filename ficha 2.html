@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ficha Medica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        label, input, select, textarea {
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ficha Medica</h1>
+    <form id="medicalForm">
+        <label for="rut">Rut:</label>
+        <input type="text" id="rut" name="rut" required><br>
+
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required><br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required><br>
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br>
+
+        <label for="estadoCivil">Estado Civil:</label>
+        <select id="estadoCivil" name="estadoCivil" required>
+            <option value="soltero">Soltero</option>
+            <option value="casado">Casado</option>
+            <option value="divorciado">Divorciado</option>
+        </select><br>
+
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" name="comentarios" rows="4"></textarea><br>
+
+        <button type="button" id="guardar">Guardar</button>
+        <button type="button" id="limpiar">Limpiar</button>
+        <button type="button" id="cerrar">Cerrar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const medicalForm = document.getElementById("medicalForm");
+            const resultado = document.getElementById("resultado");
+
+            medicalForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+            });
+
+            document.getElementById("guardar").addEventListener("click", function () {
+                // Aquí puedes agregar la lógica para guardar el registro en una base de datos o en localStorage.
+                // Comprueba si el registro ya existe antes de guardar.
+                resultado.textContent = "Registro guardado con éxito.";
+            });
+
+            document.getElementById("limpiar").addEventListener("click", function () {
+                medicalForm.reset();
+                resultado.textContent = "";
+            });
+
+            document.getElementById("cerrar").addEventListener("click", function () {
+                // Puedes redirigir al usuario o cerrar la ventana/modal.
+            });
+        });
+    </script>
+</body>
+</html>
